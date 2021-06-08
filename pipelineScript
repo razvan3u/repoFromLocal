@@ -4,11 +4,14 @@ node {
         newFile: {
                node{
                sh 'touch newFile'
-        }
+               }
+        },
         cloneRepo: {
                node{
                git branch: 'main', url: 'https://github.com/razvan3u/newRepoOnGH'
+               }
         }
+        )
     }
     stage('write'){
         sh 'echo "some text to this new file" > newFile'
