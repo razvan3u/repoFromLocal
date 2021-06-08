@@ -1,0 +1,17 @@
+node {
+    stage('create'){
+        sh 'touch newFile'
+    }
+    stage('write'){
+        sh 'echo "some text to this new file" > newFile'
+    }
+    stage('print'){
+        sh 'cat newFile'
+    }
+    stage('clone repo from Git'){
+        git branch: 'main', url: 'https://github.com/razvan3u/newRepoOnGH'
+    }
+    stage('print feature1 file from repo'){
+        sh 'cat feature1'
+    }
+}
